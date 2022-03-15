@@ -1,7 +1,6 @@
 # NestJS + GraphQL + Prisma
 
-
-
+## (How to set up NestJS with Prisma:)[https://github.com/LeGiangK62/nodeJS-postgres]
 # Generate all module, source, controller for new
 
 ```bash
