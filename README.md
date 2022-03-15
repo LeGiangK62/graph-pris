@@ -1,42 +1,42 @@
-# NestJS + GraphQL + Prisma
+**NestJS + GraphQL + Prisma**
 
+- [1. Set up NestJS with Prisma](#1-set-up-nestjs-with-prisma)
+- [2. Adding GraphQL schema - first](#2-adding-graphql-schema---first)
+  - [2.1. Installation](#21-installation)
+  - [2.2. Adding GQL into app.module](#22-adding-gql-into-appmodule)
+  - [2.3. Adding generate typings file](#23-adding-generate-typings-file)
+  - [2.4. Edit graphql file](#24-edit-graphql-file)
+  - [2.5. Generate graphql.ts file](#25-generate-graphqlts-file)
+  - [2.6. Edit x.service APIs function](#26-edit-xservice-apis-function)
+  - [2.7. To create:](#27-to-create)
+  - [2.8. To Query:](#28-to-query)
+- [3. Adding GraphQL code - first](#3-adding-graphql-code---first)
+  - [3.1. Create object type in x.entity.ts](#31-create-object-type-in-xentityts)
+  - [3.2. Adding GraphQL module to app.module](#32-adding-graphql-module-to-appmodule)
+  - [3.3. Run to generate schema.gql](#33-run-to-generate-schemagql)
+  - [3.4. Edit x.service APIs function](#34-edit-xservice-apis-function)
+
+
+# 1. Set up NestJS with Prisma
 [How to set up NestJS with Prisma:](https://github.com/LeGiangK62/nodeJS-postgres)
 
 
-- [NestJS + GraphQL + Prisma](#nestjs--graphql--prisma)
-- [Generate all module, source, controller for new](#generate-all-module-source-controller-for-new)
-- [Adding GraphQL schema - first](#adding-graphql-schema---first)
-  - [Installation](#installation)
-  - [Adding GQL into app.module](#adding-gql-into-appmodule)
-  - [Adding generate typings file](#adding-generate-typings-file)
-  - [Edit graphql file](#edit-graphql-file)
-  - [Generate graphql.ts file](#generate-graphqlts-file)
-  - [Edit x.service APIs function](#edit-xservice-apis-function)
-  - [To create:](#to-create)
-  - [To Query:](#to-query)
-- [Adding GraphQL code - first](#adding-graphql-code---first)
-  - [Create object type in x.entity.ts](#create-object-type-in-xentityts)
-  - [Adding GraphQL module to app.module](#adding-graphql-module-to-appmodule)
-  - [Run to generate schema.gql](#run-to-generate-schemagql)
-  - [Edit x.service APIs function](#edit-xservice-apis-function-1)
-
-
-# Generate all module, source, controller for new
+* Generate all module, source, controller for new
 
 ```bash
 nest generate resource
 ```
 
-# Adding GraphQL schema - first
+# 2. Adding GraphQL schema - first
 
-## Installation
+## 2.1. Installation
 
 
   ```bash
       npm i --save @nestjs/graphql @nestjs/apollo graphql apollo-server-express typescript ts-node ts-morph @apollo/gateway
   ```
 
-## Adding GQL into app.module
+## 2.2. Adding GQL into app.module
   ```ts
     @Module({
     imports: [...,
@@ -50,7 +50,7 @@ nest generate resource
   ...
   ```
 
-## Adding generate typings file
+## 2.3. Adding generate typings file
 
   ```ts
     import { GraphQLDefinitionsFactory } from '@nestjs/graphql';
@@ -64,19 +64,19 @@ nest generate resource
     });
   ```
 
-## Edit graphql file
+## 2.4. Edit graphql file
 
 
-## Generate graphql.ts file
+## 2.5. Generate graphql.ts file
   ```bash
     tsc .\src\generate-typings.ts 
     node .\src\generate-typings.js 
   ```
 
 
-## Edit x.service APIs function
+## 2.6. Edit x.service APIs function
 
-## To create:
+## 2.7. To create:
   ```graphql
     mutation {
       createUser(createUserInput:{
@@ -89,7 +89,7 @@ nest generate resource
     }
   ```
 
-## To Query:
+## 2.8. To Query:
   ```graphql
     query{
       users{ 
@@ -100,9 +100,9 @@ nest generate resource
   ```
 
 
-# Adding GraphQL code - first
+# 3. Adding GraphQL code - first
 
-## Create object type in x.entity.ts
+## 3.1. Create object type in x.entity.ts
   ```ts
     @ObjectType()
     export class Pet {
@@ -121,7 +121,7 @@ nest generate resource
 
   ```
 
-## Adding GraphQL module to app.module
+## 3.2. Adding GraphQL module to app.module
   ```ts
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
@@ -129,9 +129,9 @@ nest generate resource
     }),
   ```
 
-## Run to generate schema.gql
+## 3.3. Run to generate schema.gql
   ```bash
     npm run start:dev
   ```
 
-## Edit x.service APIs function
+## 3.4. Edit x.service APIs function
