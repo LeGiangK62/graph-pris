@@ -2,7 +2,6 @@
 
 - [1. Set up NestJS with Prisma](#1-set-up-nestjs-with-prisma)
 - [2. Adding GraphQL schema - first](#2-adding-graphql-schema---first)
-  - [2.1. Installation](#21-installation)
   - [2.2. Adding GQL into app.module](#22-adding-gql-into-appmodule)
   - [2.3. Adding generate typings file](#23-adding-generate-typings-file)
   - [2.4. Edit graphql file](#24-edit-graphql-file)
@@ -27,14 +26,17 @@
 nest generate resource
 ```
 
-# 2. Adding GraphQL schema - first
-
-## 2.1. Installation
+* Installation
 
 
   ```bash
       npm i --save @nestjs/graphql @nestjs/apollo graphql apollo-server-express typescript ts-node ts-morph @apollo/gateway
   ```
+
+# 2. Adding GraphQL schema - first
+
+* Create schema first
+* Generate class (graphql.ts) from schema
 
 ## 2.2. Adding GQL into app.module
   ```ts
@@ -101,6 +103,9 @@ nest generate resource
 
 
 # 3. Adding GraphQL code - first
+
+* Create class (entity) first
+* Generate schema from entity
 
 ## 3.1. Create object type in x.entity.ts
   ```ts
