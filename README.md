@@ -13,9 +13,11 @@ nest generate resource
 # Adding GraphQL schema - first
 
 ## Installation
-	```bash
-		npm i @nestjs/graphql @nestjs/apollo graphql apollo-server-express typescript ts-node ts-morph @apollo/gateway
-	```
+
+
+  ```bash
+      npm i @nestjs/graphql @nestjs/apollo graphql apollo-server-express typescript ts-node ts-morph @apollo/gateway
+  ```
 
 ## Adding GQL into app.module
   ```ts
