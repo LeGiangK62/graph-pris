@@ -14,6 +14,11 @@
   - [Edit x.service APIs function](#edit-xservice-apis-function)
   - [To create:](#to-create)
   - [To Query:](#to-query)
+- [Adding GraphQL code - first](#adding-graphql-code---first)
+  - [Create object type in x.entity.ts](#create-object-type-in-xentityts)
+  - [Adding GraphQL module to app.module](#adding-graphql-module-to-appmodule)
+  - [Run to generate schema.gql](#run-to-generate-schemagql)
+  - [Edit x.service APIs function](#edit-xservice-apis-function-1)
 
 
 # Generate all module, source, controller for new
@@ -94,3 +99,39 @@ nest generate resource
     }
   ```
 
+
+# Adding GraphQL code - first
+
+## Create object type in x.entity.ts
+  ```ts
+    @ObjectType()
+    export class Pet {
+      // @Field(() => Int, { description: 'Example field (placeholder)' })
+      // exampleField: number;
+
+      @Field(type => Int)
+      id: number;
+
+      @Field()
+      name: string;
+
+      @Field({nullable: true})
+      type?: string;
+    }
+
+  ```
+
+## Adding GraphQL module to app.module
+  ```ts
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    }),
+  ```
+
+## Run to generate schema.gql
+  ```bash
+    npm run start:dev
+  ```
+
+## Edit x.service APIs function
